@@ -2,6 +2,7 @@
 
 @Code
     ViewData("Title") = "Create"
+    Layout = "~/Views/Shared/_Layout1.vbhtml"
 End Code
 
 <h2>Neuen Kunden erfassen</h2>
@@ -80,5 +81,5 @@ End Using
 </div>
 
 @Section Scripts
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Content/Scripts/jquery")
 End Section

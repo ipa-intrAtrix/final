@@ -7,6 +7,8 @@
         Private _phone As Integer
         Private _email As String
 
+        
+
         Public Overridable Property ContactId() As Integer
             Get
                 Return _contactId

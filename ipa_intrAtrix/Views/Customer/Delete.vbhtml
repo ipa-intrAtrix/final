@@ -4,11 +4,8 @@
     ViewData("Title") = "Delete"
 End Code
 
-<h2>Delete</h2>
-
-<h3></h3>
-<fieldset>
-    <legend>Kundenentzwerk</legend>
+<div class="container">
+    <h2>Delete</h2>
 
     <div class="display-label">
         @Html.DisplayNameFor(Function(model) model.CustId)
@@ -58,11 +55,13 @@ End Code
     <div class="display-field">
         @Html.DisplayFor(Function(model) model.WarantyExp)
     </div>
-</fieldset>
-@Using Html.BeginForm()
-    @Html.AntiForgeryToken()
-    @<p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-End Using
+
+    @Using Html.BeginForm()
+        @Html.AntiForgeryToken()
+        @<p>
+            <input type="submit" value="Delete" class="btn btn-default" />
+            |
+        @Html.ActionLink("Zurück zur Kundennetzwerkseite ", "Index", New With {.class = "btn btn-primary active", .role = "button"})
+        </p>
+    End Using
+</div>

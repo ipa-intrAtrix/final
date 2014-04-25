@@ -5,8 +5,8 @@
   <class name="Providers" table="Lieferanten" lazy="false">
 
     <id name="ProviderId">
-      <column name="pr_id" sql-type="integer" not-null="true"/>
-      <generator class="native" />
+      <column name="pr_id"/>
+      <generator class="identity" />
     </id>
 
     <property name="Company">
@@ -32,21 +32,21 @@
       <column name ="pr_weblink" not-null="false"/>
     </property>
 
-    <many-to-one name="Place" column="pr_ort_id"/>
+    <many-to-one name="Place" column="pr_ort_id"  not-null="false" />
     
-    <many-to-one name="LoginData" column="pr_logindaten_id"/>
+    <many-to-one name="LoginData" column="pr_logindaten_id"  not-null="false" />
 
-    <set name="Contact" table="Kontakt_Lieferant"
-            inverse="false" fetch="select" cascade="all">
+    <bag name="Contact" table="Kontakte_Lieferanten"
+            inverse="false">
       <key column="zw_lieferant_id" />
       <many-to-many column="zw_kontakt_id" class="Contact" />
-    </set>
+    </bag>
 
-    <set name="Authorized" table="User_Lieferant"
+    <bag name="Authorized" table="Users_Lieferanten"
              fetch="select" cascade="all">
       <key column="zw_lieferant_id" />
       <many-to-many column="zw_user_id" class="Users" />
-    </set>
+    </bag>
 
   </class>
 

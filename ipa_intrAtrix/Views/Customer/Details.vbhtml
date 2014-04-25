@@ -4,10 +4,7 @@
     ViewData("Title") = "Details"
 End Code
 
-<h2>Details</h2>
-
-<fieldset>
-    <legend>CustomerNetwork</legend>
+<div class="container">
 
     <div class="display-label">
         @Html.DisplayNameFor(Function(model) model.CustId)
@@ -57,8 +54,9 @@ End Code
     <div class="display-field">
         @Html.DisplayFor(Function(model) model.WarantyExp)
     </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", New With {.id = Model.CustId}) 
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", New With {.id = Model.CustId, .class = "btn btn-default", .role = "button"})
+        @Html.ActionLink("Back to List", "Index", New With {.class = "btn btn-primary active", .role = "button"})
+    </p>
+</div>

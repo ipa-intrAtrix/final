@@ -1,70 +1,77 @@
 ﻿@ModelType IEnumerable(Of ipa_intrAtrix.Models.Contracts.CustomerNetwork)
 
 @Code
-    ViewData("Title") = "Index"
+    ViewData("Title") = "Kundennetzwerkangaben von Atrix Consult GmbH"
+    ViewData("Info") = "Die Kundennetzwerkdaten sind hier erfasst. Bevor man diese Daten jedoch ändert sollte man das mit dem Systemadministrator besprechen." + Environment.NewLine _
+        + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    Layout = "~/Views/Shared/_Layout1.vbhtml"
 End Code
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.CustId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.SpiderId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.InternalDescr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.Schema)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.Starting)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.Shutdown)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.WarantyExp)
-        </th>
-        <th></th>
-    </tr>
+<div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kundennetzwerk ID
+                    </th>
+                    <th>Spider ID
+                    </th>
+                    <th>Interne Beschreibung
+                    </th>
+                    <th>Netzwerkschema
+                    </th>
+                    <th>Inbetriebnahme
+                    </th>
+                    <th>Ausserbetriebnahme
+                    </th>
+                    <th>Garantieart
+                    </th>
+                    <th>Garantie
+                    </th>
 
-@For Each item In Model
-    Dim currentItem = item
-    @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.CustId)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.SpiderId)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.InternalDescr)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.Schema)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.Starting)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.Shutdown)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.WarantyExp)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = currentItem.CustId}) |
-            @Html.ActionLink("Details", "Details", New With {.id = currentItem.CustId}) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = currentItem.CustId})
-        </td>
-    </tr>
-Next
+                </tr>
+            </thead>
+            <tbody>
+                @For Each item In Model
+                    Dim currentItem = item
+                    @<tr>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) currentItem.CustId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) currentItem.SpiderId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) currentItem.InternalDescr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) currentItem.Schema)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) currentItem.Starting)
+                        </td>
+                        <td>
 
-</table>
+                            @Html.DisplayFor(Function(modelItem) currentItem.Shutdown)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) currentItem.Waranty.WarantyDescr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(Function(modelItem) currentItem.WarantyExp)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Bearbeiten", "Edit", New With {.id = currentItem.CustId})
+                            <br />
+                            @Html.ActionLink("Details", "Details", New With {.id = currentItem.CustId})
+                            <br />
+                            @Html.ActionLink("Löschen", "Delete", New With {.id = currentItem.CustId})
+                        </td>
+                    </tr>
+                Next
+            </tbody>
+        </table>
+    </div>
+</div>

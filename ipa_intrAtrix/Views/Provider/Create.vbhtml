@@ -80,5 +80,6 @@ End Using
 </div>
 
 @Section Scripts
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrapjs")
 End Section

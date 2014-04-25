@@ -1,4 +1,6 @@
-﻿Namespace Models.Contracts
+﻿Imports System.ComponentModel.DataAnnotations
+
+Namespace Models.Contracts
 
     Public Class CustomerNetwork
 
@@ -49,6 +51,9 @@
             End Set
         End Property
 
+
+        <DisplayFormat(DataFormatString:="{0:dd/MM/yyyy}",
+                       ApplyFormatInEditMode:=True)>
         Public Overridable Property Starting() As Date
             Get
                 Return _starting
@@ -58,6 +63,8 @@
             End Set
         End Property
 
+        <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
+                       ApplyFormatInEditMode:=True)>
         Public Overridable Property Shutdown() As Date
             Get
                 Return _shutdown
@@ -67,6 +74,8 @@
             End Set
         End Property
 
+        <DisplayFormat(DataFormatString:="{0:dd/MM/yyyy}",
+                       ApplyFormatInEditMode:=True)>
         Public Overridable Property WarantyExp() As Date
             Get
                 Return _warantyExp

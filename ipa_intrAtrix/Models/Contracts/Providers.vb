@@ -1,4 +1,6 @@
 ﻿
+Imports System.ComponentModel.DataAnnotations
+
 Namespace Models.Contracts
     Public Class Providers
         Private _providerId As Integer
@@ -8,11 +10,12 @@ Namespace Models.Contracts
         Private _phone As String
         Private _email As String
         Private _weblink As String
-
         Private _contact As IList(Of Contact) = New List(Of Contact)
         Private _authorized As IList(Of Users) = New List(Of Users)
         Private _place As Place
         Private _logindata As LoginData
+
+   
 
         Public Overridable Property ProviderId() As Integer
             Get
@@ -23,6 +26,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
+        <Required()> _
         Public Overridable Property Company() As String
             Get
                 Return _company
@@ -41,6 +45,8 @@ Namespace Models.Contracts
             End Set
         End Property
 
+        <Required(), _
+         StringLength(25)> _
         Public Overridable Property CustomerRef() As String
             Get
                 Return _customerRef

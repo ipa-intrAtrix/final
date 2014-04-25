@@ -3,7 +3,7 @@ Namespace Models.Contracts
 
     Public Class Element
 
-
+        '<!--NHibernate Mapping Klasse für die Netzwerkelemente Tabelle-->
         Private _elementId As Integer
         Private _element As String
         Private _elementDescr As String
