@@ -81,5 +81,6 @@ End Using
 </div>
 
 @Section Scripts
-    @Scripts.Render("~/Content/Scripts/jquery")
+    @Scripts.Render("~/bundles/Scripts/jquery")
+    @Scripts.Render("~/bundles/Scripts/bootstrapjs")
 End Section

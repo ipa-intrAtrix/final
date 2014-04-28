@@ -43,14 +43,14 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Starting, "Inbetriebnahme:")
 
-            @Html.TextBoxFor(Function(model) model.Starting, New With {.class = "form-control"})
+            @Html.TextBoxFor(Function(model) model.Starting)
             @Html.ValidationMessageFor(Function(model) model.Starting)
         </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Shutdown, "Ausserbetriebnahme:")
 
-            @Html.TextBoxFor(Function(model) model.Shutdown, New With {.class = "form-control"})
+            @Html.TextBoxFor(Function(model) model.Shutdown)
             @Html.ValidationMessageFor(Function(model) model.Shutdown)
         </div>
 
@@ -64,7 +64,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.WarantyExp, "Garantie:")
 
-            @Html.TextBoxFor(Function(model) model.WarantyExp, New With {.class = "form-control"})
+            @Html.TextBoxFor(Function(model) model.WarantyExp)
             @Html.ValidationMessageFor(Function(model) model.WarantyExp)
         </div>
 

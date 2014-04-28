@@ -7,6 +7,7 @@
     <meta name="author" content="">
     <title>@ViewData("Title")</title>
     @Styles.Render("~/Content/CSS/bootstrapcss")
+    @Styles.Render("~/Content/CSS/jquerycss")
     <style>
     </style>
 

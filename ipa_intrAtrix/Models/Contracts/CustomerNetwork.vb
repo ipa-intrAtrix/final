@@ -52,8 +52,9 @@ Namespace Models.Contracts
         End Property
 
 
-        <DisplayFormat(DataFormatString:="{0:dd/MM/yyyy}",
+        <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
                        ApplyFormatInEditMode:=True)>
+        <DataType(DataType.[Date])>
         Public Overridable Property Starting() As Date
             Get
                 Return _starting
@@ -65,6 +66,7 @@ Namespace Models.Contracts
 
         <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
                        ApplyFormatInEditMode:=True)>
+        <DataType(DataType.[Date])>
         Public Overridable Property Shutdown() As Date
             Get
                 Return _shutdown
@@ -74,8 +76,9 @@ Namespace Models.Contracts
             End Set
         End Property
 
-        <DisplayFormat(DataFormatString:="{0:dd/MM/yyyy}",
+        <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
                        ApplyFormatInEditMode:=True)>
+        <DataType(DataType.[Date])>
         Public Overridable Property WarantyExp() As Date
             Get
                 Return _warantyExp

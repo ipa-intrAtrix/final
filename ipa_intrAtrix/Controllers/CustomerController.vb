@@ -12,7 +12,10 @@ Public Class CustomerController
 
     '
     ' GET: /Customer
-    Function Index() As ActionResult
+    Function Index(ByVal searchBy As String, ByVal search As String) As ActionResult
+
+
+
         Return View(_customerHelper.GetCustomerNetworks())
     End Function
 
