@@ -1,11 +1,21 @@
-﻿Namespace Models.Contracts
+﻿Imports System.ComponentModel.DataAnnotations
+
+Namespace Models.Contracts
     Public Class Place
         Private _placeId As Integer
         Private _name As String
         Private _postal As Integer
         Private _land As String
         Private _state As String
+        Private _provider As IList(Of Providers)
 
+        Public Sub New()
+            Me.Provider = New List(Of Providers)
+        End Sub
+
+
+        <Key()> _
+        <Required()>
         Public Overridable Property PlaceId() As Integer
             Get
                 Return _placeId
@@ -48,6 +58,15 @@
             End Get
             Set(value As String)
                 _state = value
+            End Set
+        End Property
+
+        Public Overridable Property Provider() As IList(Of Providers)
+            Get
+                Return _provider
+            End Get
+            Set(value As IList(Of Providers))
+                _provider = value
             End Set
         End Property
 

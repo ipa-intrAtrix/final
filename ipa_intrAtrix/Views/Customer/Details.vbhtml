@@ -1,62 +1,71 @@
 ﻿@ModelType ipa_intrAtrix.Models.Contracts.CustomerNetwork
 
 @Code
-    ViewData("Title") = "Details"
+    ViewData("Title") = Model.CustId
+    ViewData("Info") = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+
 End Code
 
-<div class="container">
+<div >
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.CustId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.CustId)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.SpiderId)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.SpiderId)
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.CustId, "Kundennetzwerk ID:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.CustId, New With {.class = "form-control", .disabled = True})
     </div>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.InternalDescr)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.InternalDescr)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.Schema)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.Schema)
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.SpiderId, "Spider ID:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.SpiderId, New With {.class = "form-control", .disabled = True})
     </div>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.Starting)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.Starting)
-    </div>
-
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.Shutdown)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.Shutdown)
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.InternalDescr, "Interne Beschreibung:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.InternalDescr, New With {.class = "form-control", .disabled = True})
     </div>
 
-    <div class="display-label">
-        @Html.DisplayNameFor(Function(model) model.WarantyExp)
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.Schema, "Netzwerkschema:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.Schema, New With {.class = "form-control", .disabled = True})
     </div>
-    <div class="display-field">
-        @Html.DisplayFor(Function(model) model.WarantyExp)
+
+@*    <div class="form-group">
+        @Html.LabelFor(Function(model) model.Schema, "Netzwerk Elemente:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.Schema, New With {.class = "form-control", .disabled = True})
+    </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.Starting, "Inbetriebnahme:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.Starting, New With {.class = "form-control", .disabled = True})
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.Shutdown, "Ausserbetriebnahme:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.Shutdown, New With {.class = "form-control", .disabled = True})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.WarantyExp, "Garantie:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.WarantyExp, New With {.class = "form-control", .disabled = True})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(Function(model) model.Waranty.WarantyDescr, "Garantieart:", New With {.class = "control-label"})
+    
+        @Html.TextBoxFor(Function(model) model.Waranty.WarantyDescr, New With {.class = "form-control", .disabled = True})
+    </div>
+
+
 
     <p>
-        @Html.ActionLink("Edit", "Edit", New With {.id = Model.CustId, .class = "btn btn-default", .role = "button"})
-        @Html.ActionLink("Back to List", "Index", New With {.class = "btn btn-primary active", .role = "button"})
+        @Html.ActionLink("Zurück", "Index", Nothing, New With {.class = "btn btn-primary", .role = "button"})
+        @Html.ActionLink("Kundennetzwerk bearbeiten", "Edit",  New With {.id = Model.CustId}, New With { .class = "btn btn-default", .role = "button"})
     </p>
 </div>

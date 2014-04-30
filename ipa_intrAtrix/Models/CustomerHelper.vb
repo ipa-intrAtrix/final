@@ -60,5 +60,14 @@ Namespace Models
             Return warantyInfo
         End Function
 
+        Public Function GetElements() As IList(Of Element)
+            Dim elements As IList(Of Element)
+            Using session As ISession = NHibernateHelper.GetCurrentSession()
+                Dim criteria As ICriteria = session.CreateCriteria(GetType(Element))
+                elements = criteria.List(Of Element)()
+            End Using
+            Return elements
+        End Function
+
     End Class
 End Namespace

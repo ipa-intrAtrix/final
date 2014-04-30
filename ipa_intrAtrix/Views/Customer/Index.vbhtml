@@ -1,10 +1,9 @@
 ﻿@ModelType IEnumerable(Of ipa_intrAtrix.Models.Contracts.CustomerNetwork)
 
 @Code
-    ViewData("Title") = "Kundennetzwerkangaben von Atrix Consult GmbH"
-    ViewData("Info") = "Die Kundennetzwerkdaten sind hier erfasst. Bevor man diese Daten jedoch ändert sollte man das mit dem Systemadministrator besprechen." + Environment.NewLine _
-        + "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-    Layout = "~/Views/Shared/_Layout1.vbhtml"
+    ViewData("Title") = "Alle Kundennetzwerkdaten"
+    ViewData("Info") = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+    'Layout = "~/Views/Shared/_Layout1.vbhtml"
 End Code
 
 

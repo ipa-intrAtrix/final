@@ -1,4 +1,6 @@
-﻿Namespace Models.Contracts
+﻿Imports System.ComponentModel.DataAnnotations
+
+Namespace Models.Contracts
     Public Class Contact
         Private _contactId As Integer
         Private _name As String
@@ -6,9 +8,15 @@
         Private _branch As String
         Private _phone As Integer
         Private _email As String
+        Private _provider As IList(Of Providers)
 
-        
 
+        Public Sub New()
+            Provider = New List(Of Providers)()
+        End Sub
+
+        <Key()> _
+        <Required()>
         Public Overridable Property ContactId() As Integer
             Get
                 Return _contactId
@@ -45,11 +53,11 @@
             End Set
         End Property
 
-        Public Overridable Property Phone() As Integer
+        Public Overridable Property Phone() As String
             Get
                 Return _phone
             End Get
-            Set(value As Integer)
+            Set(value As String)
                 _phone = value
             End Set
         End Property
@@ -60,6 +68,15 @@
             End Get
             Set(value As String)
                 _email = value
+            End Set
+        End Property
+
+        Public Overridable Property Provider() As IList(Of Providers)
+            Get
+                Return _provider
+            End Get
+            Set(value As IList(Of Providers))
+                _provider = value
             End Set
         End Property
 

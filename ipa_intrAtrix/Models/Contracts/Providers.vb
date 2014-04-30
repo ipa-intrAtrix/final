@@ -10,13 +10,21 @@ Namespace Models.Contracts
         Private _phone As String
         Private _email As String
         Private _weblink As String
-        Private _contact As IList(Of Contact) = New List(Of Contact)
-        Private _authorized As IList(Of Users) = New List(Of Users)
+        Private _contact As IList(Of Contact)
+        Private _authorized As IList(Of Users)
         Private _place As Place
         Private _logindata As LoginData
 
-   
 
+        Public Sub New()
+            Contact = New List(Of Contact)()
+            Authorized = New List(Of Users)()
+
+        End Sub
+
+   
+        <Key()> _
+        <Required()>
         Public Overridable Property ProviderId() As Integer
             Get
                 Return _providerId
@@ -45,8 +53,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
-        <Required(), _
-         StringLength(25)> _
+        <StringLength(25)> _
         Public Overridable Property CustomerRef() As String
             Get
                 Return _customerRef
@@ -56,6 +63,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
+        <Required()>
         Public Overridable Property Phone() As String
             Get
                 Return _phone

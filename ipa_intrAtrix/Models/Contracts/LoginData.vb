@@ -1,10 +1,18 @@
-﻿Namespace Models.Contracts
+﻿Imports System.ComponentModel.DataAnnotations
+
+Namespace Models.Contracts
     Public Class LoginData
         Private _loginDataId As Integer
         Private _username As String
         Private _password As String
+        Private _provider As IList(Of Providers)
 
+        Public Sub New()
+            Me.Provider = New List(Of Providers)
+        End Sub
 
+        <Key()> _
+        <Required()>
         Public Overridable Property LoginDataId() As Integer
             Get
                 Return _loginDataId
@@ -32,6 +40,14 @@
             End Set
         End Property
 
+        Public Overridable Property Provider() As IList(Of Providers)
+            Get
+                Return _provider
+            End Get
+            Set(value As IList(Of Providers))
+                _provider = value
+            End Set
+        End Property
 
     End Class
 End Namespace

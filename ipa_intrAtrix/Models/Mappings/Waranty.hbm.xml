@@ -1,18 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-    namespace="ipa_intrAtrix.Models.Contracts" assembly="ipa_intrAtrix">
-<!--NHibernate XML Mapping für die Garantie Tabelle-->
+    namespace="ipa_intrAtrix.Models.Contracts" assembly="ipa_intrAtrix" default-cascade="save-update">
+
   <class name="Waranty" table="Garantie" lazy="false">
 
     <id name="WarantyId">
       <column name="gar_id" sql-type="integer" not-null="true"/>
-      <generator class="native" />
+      <generator class="identity" />
     </id>
 
     <property name="WarantyDescr">
-      <column name="gar_beschreibung" length="35" not-null="true" />
+      <column name="gar_beschreibung" not-null="true" />
     </property>
 
+    <bag name="CustomerNetworks" inverse="true" generic="true">
+      <key>
+        <column name="kund_garantie_id" />
+      </key>
+      <one-to-many class="CustomerNetwork" />
+    </bag>
+    
   </class>
 
 </hibernate-mapping>

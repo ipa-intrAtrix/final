@@ -1,83 +1,87 @@
 ﻿@ModelType ipa_intrAtrix.Models.Contracts.Providers
 
 @Code
-    ViewData("Title") = "Create"
-End Code
+    ViewData("Info") = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 
-<h2>Create</h2>
+    'Layout = "~/Views/Shared/_Layout1.vbhtml"
+End Code
 
 @Using Html.BeginForm()
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(True)
 
-    @<fieldset>
-        <legend>Providers</legend>
+    @<div>
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.ProviderId, "Lieferanten ID:", New With {.class = "control-label"})
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.ProviderId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.ProviderId)
+            @Html.TextBoxFor(Function(model) model.ProviderId, New With {.class = "form-control", .disabled = True})
             @Html.ValidationMessageFor(Function(model) model.ProviderId)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.Company)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.Company)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Company, "Firma:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Company, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.Company)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.LockBox)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.LockBox)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.LockBox, "Postfach:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.LockBox, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.LockBox)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.CustomerRef)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.CustomerRef)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.CustomerRef, "Kundennummer:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.CustomerRef, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.CustomerRef)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.Phone)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Place, "Ort:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Place, New With {.class = "form-control"})
+            @Html.ValidationMessageFor(Function(model) model.Place)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.Phone)
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.LoginData, "Logindaten:", New With {.class = "control-label"}) 
+
+            @Html.TextBoxFor(Function(model) model.LoginData.Username, New With {.class = "form-control"})
+
+            @Html.ValidationMessageFor(Function(model) model.LoginData)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Phone, "Telefon:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Phone, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.Phone)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.Email)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Email, "Email:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Email, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.Email)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.Weblink)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.Weblink)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Weblink, "Weblink:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Weblink, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.Weblink)
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            @Html.ActionLink("Zurück", "Index", Nothing, New With {.class = "btn btn-default", .role = "button"})
+            <input type="submit" value="Lieferant erfassen" class="btn btn-primary" />
         </p>
-    </fieldset>
+    </div>
 End Using
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @Section Scripts
     @Scripts.Render("~/bundles/jquery")

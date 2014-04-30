@@ -8,12 +8,19 @@ Namespace Models.Contracts
         Private _spiderId As String
         Private _internalDescr As String
         Private _schema As String
-        Private _starting As Date
-        Private _shutdown As Date
-        Private _warantyExp As Date
+        Private _starting As Date?
+        Private _shutdown As Date?
+        Private _warantyExp As Date?
         Private _waranty As Waranty
+        Private _elements As IList(Of Element)
 
 
+        Public Sub New()
+            Elements = New List(Of Element)
+        End Sub
+
+        <Key()> _
+        <Required()>
         Public Overridable Property CustId() As Integer
             Get
                 Return _custId
@@ -23,7 +30,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
-
+        <Required()> _
         Public Overridable Property SpiderId() As String
             Get
                 Return _spiderId
@@ -33,6 +40,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
+        <Required()> _
         Public Overridable Property InternalDescr() As String
             Get
                 Return _internalDescr
@@ -52,38 +60,37 @@ Namespace Models.Contracts
         End Property
 
 
-        <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
-                       ApplyFormatInEditMode:=True)>
-        <DataType(DataType.[Date])>
-        Public Overridable Property Starting() As Date
+        <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}", ApplyFormatInEditMode:=True)> _
+        <DataType(DataType.Date)> _
+        Public Overridable Property Starting() As Date?
             Get
                 Return _starting
             End Get
-            Set(value As Date)
+            Set(value As Date?)
                 _starting = value
             End Set
         End Property
 
         <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
-                       ApplyFormatInEditMode:=True)>
-        <DataType(DataType.[Date])>
-        Public Overridable Property Shutdown() As Date
+                       ApplyFormatInEditMode:=True)> _
+        <DataType(DataType.Date)> _
+        Public Overridable Property Shutdown() As Date?
             Get
                 Return _shutdown
             End Get
-            Set(value As Date)
+            Set(value As Date?)
                 _shutdown = value
             End Set
         End Property
 
         <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
-                       ApplyFormatInEditMode:=True)>
-        <DataType(DataType.[Date])>
-        Public Overridable Property WarantyExp() As Date
+                       ApplyFormatInEditMode:=True)> _
+        <DataType(DataType.Date)> _
+        Public Overridable Property WarantyExp() As Date?
             Get
                 Return _warantyExp
             End Get
-            Set(value As Date)
+            Set(value As Date?)
                 _warantyExp = value
             End Set
         End Property
@@ -94,6 +101,15 @@ Namespace Models.Contracts
             End Get
             Set(value As Waranty)
                 _waranty = value
+            End Set
+        End Property
+
+        Public Overridable Property Elements() As IList(Of Element)
+            Get
+                Return _elements
+            End Get
+            Set(value As IList(Of Element))
+                _elements = value
             End Set
         End Property
 

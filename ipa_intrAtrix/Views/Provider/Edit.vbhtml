@@ -4,75 +4,73 @@
     ViewData("Title") = "Edit"
 End Code
 
-<h2>Edit</h2>
 
 @Using Html.BeginForm()
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(True)
+    
+    @<div>
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.ProviderId, "Lieferant ID:", New With {.class = "control-label"})
 
-    @<fieldset>
-        <legend>Providers</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.ProviderId)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.ProviderId)
-            @Html.ValidationMessageFor(Function(model) model.ProviderId)
+            @Html.TextBoxFor(Function(model) model.ProviderId, New With {.class = "form-control", .disabled = True})
+            @*@Html.ValidationMessageFor(Function(model) model.CustId)*@
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.Company)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.Company)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Company, "Firma:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Company, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.Company)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.LockBox)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.LockBox)
-            @Html.ValidationMessageFor(Function(model) model.LockBox)
-        </div>
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.CustomerRef, "Kundennummer:", New With {.class = "control-label"})
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.CustomerRef)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.CustomerRef)
+            @Html.TextBoxFor(Function(model) model.CustomerRef, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.CustomerRef)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.Phone)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.Phone)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Phone, "Telefon:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Phone, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.Phone)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.Email)
+        
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Email, "Email:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Email, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
             @Html.ValidationMessageFor(Function(model) model.Email)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(Function(model) model.Weblink)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.LockBox, "Postfach:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.LockBox, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
+            @Html.ValidationMessageFor(Function(model) model.LockBox)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(Function(model) model.Weblink)
+
+        @*<div class="form-group">
+            @Html.Label("Garantieart:", New With {.class = "control-label"})
+            @Html.DropDownList(ViewData("GarantieArt"))
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Weblink, "Weblink:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Weblink, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
             @Html.ValidationMessageFor(Function(model) model.Weblink)
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            @Html.ActionLink("Zurück", "Index", Nothing, New With {.class = "btn btn-default", .role = "button"})
+            <input type="submit" value="Kundennetzwerk speichern" class="btn btn-primary" />
         </p>
-    </fieldset>
+    </div>
 End Using
 
 <div>

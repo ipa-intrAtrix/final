@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-    namespace="ipa_intrAtrix.Models.Contracts" assembly="ipa_intrAtrix">
+    namespace="ipa_intrAtrix.Models.Contracts" assembly="ipa_intrAtrix" default-cascade="save-update">
 
   <class name="Contact" table="Kontakte" lazy="false">
 
     <id name="ContactId">
       <column name="kont_id" sql-type="integer" not-null="true"/>
-      <generator class="native" />
+      <generator class="identity" />
     </id>
 
     <property name="Name">
@@ -28,6 +28,15 @@
     <property name="Email">
       <column name ="kont_email" not-null="false"/>
     </property>
+
+    <bag name="Provider" table="Kontakte_Lieferanten"  generic="true">
+      <key not-null="true">
+        <column name="zw_kontakt_id" />
+      </key>
+      <many-to-many class="Providers" fetch="join">
+        <column name="zw_lieferant_id" />
+      </many-to-many>
+    </bag>
     
   </class>
 

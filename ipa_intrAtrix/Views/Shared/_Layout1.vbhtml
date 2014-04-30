@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="IPA: Intranet Atrix">
+    <meta name="author" content="Sakir Olgun">
     <title>@ViewData("Title")</title>
-    @Styles.Render("~/Content/CSS/bootstrapcss")
-    @Styles.Render("~/Content/CSS/jquerycss")
+    @Styles.Render("~/Content/CSS")
+    @*@Styles.Render("~/Content/CSS/themes/base/css")*@
+    @Scripts.Render("~/bundles/Scripts/modernizr")
     <style>
     </style>
 
@@ -17,30 +18,26 @@
     Dim name As String = User.Identity.Name
     name = name.Replace("ATRIXDOM\", "")
     name = helper.GetName(name)
+
 End Code
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
                 @Html.ActionLink("Intranet Atrix Consult GmbH", "Index", "Home")
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>@Html.ActionLink(name, "Index", "User")</li>
-
                 </ul>
-                <form class="navbar-form navbar-right">
-                    <input type="text" class="form-control" placeholder="Search...">
-                </form>
+                @Using Html.BeginForm("Index", "Search", New With {.class = "navbar-form navbar-right"})
+                    '<input type="text" class="form-control" placeholder="Suche...">
+                    '<input type="submit" value="Suchen" />
+                End Using
             </div>
         </div>
     </div>
+    @RenderSection("featured", required:=False)
     <div class="container-fluid">
 
         <div class="row">
@@ -73,10 +70,9 @@ End Code
 
         </div>
     </div>
-    @Section Scripts
-        @Scripts.Render("~/Content/Scripts/jquery")
-        @Scripts.Render("~/Content/Scripts/bootstrapjs")
-    End Section
-    @RenderSection("featured", required:=False)
+        @Scripts.Render("~/bundles/Scripts/jquery")
+        @Scripts.Render("~/bundles/Scripts/bootstrapjs")
+
+    @RenderSection("Scripts", required:=False)
 </body>
 </html>

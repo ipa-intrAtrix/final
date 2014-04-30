@@ -12,9 +12,7 @@ Public Class CustomerController
 
     '
     ' GET: /Customer
-    Function Index(ByVal searchBy As String, ByVal search As String) As ActionResult
-
-
+    Function Index() As ActionResult
 
         Return View(_customerHelper.GetCustomerNetworks())
     End Function
@@ -31,20 +29,22 @@ Public Class CustomerController
     ' GET: /Customer/Create
     Function Create() As ActionResult
         Dim customerNetwork As New CustomerNetwork
-        
 
+        ViewData("GarantieArt") = _customerHelper.GetWarantyInfo()
         Return View(customerNetwork)
     End Function
 
     '
     ' POST: /Customer/Create
-    <HttpPost()> _
+    <HttpPost()>
+    <ValidateAntiForgeryToken()>
     Function Create(customerNetwork As CustomerNetwork) As ActionResult
         Try
-
-            _customerHelper.CreateCustomerNetwork(customerNetwork)
-
-            Return RedirectToAction("Index")
+            If ModelState.IsValid Then
+                _customerHelper.CreateCustomerNetwork(customerNetwork)
+                Return RedirectToAction("Index")
+            End If
+            Return View(customerNetwork)
         Catch
             Return View()
         End Try
@@ -57,10 +57,7 @@ Public Class CustomerController
     Function Edit(ByVal id As Integer) As ActionResult
         Dim customerNetwork = _customerHelper.GetCustomerNetworkById(id)
 
-        ViewData("GarantieArt") = New SelectList(_customerHelper.GetWarantyInfo().Select(Function(x) New SelectListItem() With {.Selected = (x.WarantyId = customerNetwork.Waranty.WarantyId), .Text = x.WarantyDescr, .Value = x.WarantyId.ToString()}))
-        'If IsNothing(customerNetwork) Then
-        '    Return HttpNotFound()
-        'End If
+        ViewData("GarantieArt") = _customerHelper.GetWarantyInfo()
 
         Return View(customerNetwork)
     End Function
@@ -68,13 +65,16 @@ Public Class CustomerController
     '
     ' POST: /Customer/Edit/5
     <HttpPost()> _
-    Function Edit(ByVal id As Integer, customerNetwork As CustomerNetwork) As ActionResult
+    <ValidateAntiForgeryToken()> _
+    Function Edit(ByVal id As Integer, customerNetwork As CustomerNetwork, collection As FormCollection) As ActionResult
         Try
 
+            If ModelState.IsValid Then
+                _customerHelper.UpdateCustomerNetwork(customerNetwork)
 
-            _customerHelper.UpdateCustomerNetwork(customerNetwork)
-
-            Return RedirectToAction("Index")
+                Return RedirectToAction("Index")
+            End If
+            Return View(customerNetwork)
         Catch
             Return View()
         End Try

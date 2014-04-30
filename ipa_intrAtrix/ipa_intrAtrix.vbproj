@@ -46,14 +46,8 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.1001\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="Lucene.Net">
-      <HintPath>..\packages\Lucene.2.9.2.2\lib\Lucene.Net.dll</HintPath>
-    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate.Search">
-      <HintPath>..\packages\NHibernate.Search.2.0.2.4000\lib\Net35\NHibernate.Search.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -69,8 +63,12 @@
     <Reference Include="System.Web.Extensions.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.Abstractions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -212,35 +210,41 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\dashboard.css" />
+    <Content Include="Content\datepicker3.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Content\jquery.ui.datepicker.css" />
+    <Content Include="Content\images\AtrixLogo.gif" />
+    <Content Include="Content\Scripts\bootstrap-datepicker.js" />
     <Content Include="Content\Scripts\datepicker.js" />
-    <Content Include="Content\Scripts\jquery-ui-1.10.4.js" />
-    <Content Include="Klassendiagramm_intrAtrix.cd" />
+    <None Include="Content\Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Content\Scripts\jquery-1.9.0.js" />
+    <Content Include="Content\Scripts\jquery-1.9.0.min.js" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Scripts\jquery-1.9.0.min.map" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\intranet.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <EmbeddedResource Include="Models\Mappings\Contact.hbm.xml" />
+    <EmbeddedResource Include="Models\Mappings\Contact.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Models\Mappings\CustomerNetwork.hbm.xml" />
     <EmbeddedResource Include="Models\Mappings\Elements.hbm.xml" />
     <EmbeddedResource Include="Models\Mappings\LoginData.hbm.xml" />
     <EmbeddedResource Include="Models\Mappings\Place.hbm.xml" />
     <EmbeddedResource Include="Models\Mappings\Provider.hbm.xml" />
     <EmbeddedResource Include="Models\Mappings\Users.hbm.xml" />
-    <EmbeddedResource Include="Models\Mappings\Waranty.hbm.xml" />
+    <EmbeddedResource Include="Models\Mappings\Waranty.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <Content Include="packages.config" />
-    <None Include="Content\Scripts\jquery-1.9.0.intellisense.js" />
-    <Content Include="Content\Scripts\jquery-1.9.0.js" />
-    <Content Include="Content\Scripts\jquery-1.9.0.min.js" />
     <Content Include="Views\Provider\Create.vbhtml" />
     <Content Include="Views\Provider\Delete.vbhtml" />
     <Content Include="Views\Provider\Details.vbhtml" />
@@ -252,10 +256,7 @@
     <Content Include="Views\Customer\Edit.vbhtml" />
     <Content Include="Views\Customer\Index.vbhtml" />
     <Content Include="Views\Home\Index.vbhtml" />
-    <Content Include="Views\User\Create.vbhtml" />
-    <Content Include="Views\User\Delete.vbhtml" />
     <Content Include="Views\User\Details.vbhtml" />
-    <Content Include="Views\User\Edit.vbhtml" />
     <Content Include="Views\User\Index.vbhtml" />
     <Content Include="Views\Shared\_Layout1.vbhtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.vbhtml" />
@@ -268,19 +269,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Scripts\bootstrap.js" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
-    <Content Include="Content\Scripts\jquery-1.9.0.min.map" />
-    <None Include="Content\Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Content\Scripts\jquery.validate.js" />
-    <Content Include="Content\Scripts\jquery.validate.min.js" />
-    <Content Include="Content\Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Content\Scripts\knockout-2.2.0.js" />
     <Content Include="Content\Scripts\modernizr-2.6.2.js" />
-    <Content Include="Content\Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -315,8 +309,7 @@
           <IISUrl>http://localhost:58018/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://intranet.atrix.ch</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

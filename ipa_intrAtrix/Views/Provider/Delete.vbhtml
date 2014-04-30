@@ -1,68 +1,57 @@
 ﻿@ModelType ipa_intrAtrix.Models.Contracts.Providers
 
 @Code
-    ViewData("Title") = "Delete"
+    ViewData("Info") = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
 End Code
 
-<h2>Delete</h2>
+<div >
 
-<h3>Are you sure you want to delete this?</h3>
-<fieldset>
-    <legend>Providers</legend>
 
-    <div class="display-label">
+    <div class="form-group">
         @Html.DisplayNameFor(Function(model) model.ProviderId)
-    </div>
-    <div class="display-field">
+
         @Html.DisplayFor(Function(model) model.ProviderId)
     </div>
 
-    <div class="display-label">
+    <div class="form-group">
         @Html.DisplayNameFor(Function(model) model.Company)
-    </div>
-    <div class="display-field">
+
         @Html.DisplayFor(Function(model) model.Company)
     </div>
 
-    <div class="display-label">
+    <div class="form-group">
         @Html.DisplayNameFor(Function(model) model.LockBox)
-    </div>
-    <div class="display-field">
+
         @Html.DisplayFor(Function(model) model.LockBox)
     </div>
 
-    <div class="display-label">
+    <div class="form-group">
         @Html.DisplayNameFor(Function(model) model.CustomerRef)
-    </div>
-    <div class="display-field">
+
         @Html.DisplayFor(Function(model) model.CustomerRef)
     </div>
 
-    <div class="display-label">
+    <div class="form-group">
         @Html.DisplayNameFor(Function(model) model.Phone)
-    </div>
-    <div class="display-field">
+
         @Html.DisplayFor(Function(model) model.Phone)
     </div>
 
-    <div class="display-label">
+    <div class="form-group">
         @Html.DisplayNameFor(Function(model) model.Email)
-    </div>
-    <div class="display-field">
+
         @Html.DisplayFor(Function(model) model.Email)
     </div>
 
-    <div class="display-label">
+    <div class="form-group">
         @Html.DisplayNameFor(Function(model) model.Weblink)
-    </div>
-    <div class="display-field">
+
         @Html.DisplayFor(Function(model) model.Weblink)
     </div>
-</fieldset>
 @Using Html.BeginForm()
     @Html.AntiForgeryToken()
     @<p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+            <input type="submit" value="Delete" class="btn btn-default" />
+            @Html.ActionLink("Zurück zur Kundennetzwerkseite ", "Index", New With {.class = "btn btn-primary", .role = "button"})</p>
 End Using
+</div>

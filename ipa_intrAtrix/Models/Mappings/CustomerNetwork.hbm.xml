@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-    namespace="ipa_intrAtrix.Models.Contracts" assembly="ipa_intrAtrix">
+    namespace="ipa_intrAtrix.Models.Contracts" assembly="ipa_intrAtrix" default-cascade="save-update">
 
   <class name="CustomerNetwork" table="Kundennetzwerke" lazy="false">
 
     <id name="CustId">
       <column name="kund_id" sql-type="integer" not-null="true"/>
-      <generator class="native" />
+      <generator class="identity" />
     </id>
 
     <property name="SpiderId">
@@ -33,10 +33,14 @@
       <column name ="kund_garantieDauer" not-null="false"/>
     </property>
 
-    <many-to-one name="Waranty"
-                     class="Waranty"
-                     column="kund_garantie_id" />
+    <many-to-one name="Waranty" class="Waranty" column="kund_garantie_id" />
     
+    <bag name="Elements" inverse="true" generic="true">
+      <key>
+        <column name="netz_kund_id" />
+      </key>
+      <one-to-many class="Element" />
+    </bag>
 
   </class>
 

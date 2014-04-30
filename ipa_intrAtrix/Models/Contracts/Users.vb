@@ -1,4 +1,6 @@
-﻿Namespace Models.Contracts
+﻿Imports System.ComponentModel.DataAnnotations
+
+Namespace Models.Contracts
     Public Class Users
 
         Private _userId As Integer
@@ -9,8 +11,14 @@
         Private _domainName As String
         Private _username As String
         Private _pass As String
-        Private _provider As IList(Of Providers) = New List(Of Providers)
+        Private _provider As IList(Of Providers)
 
+        Public Sub New()
+            Provider = New List(Of Providers)
+        End Sub
+
+        <Key()> _
+        <Required()>
         Public Overridable Property UserId() As Integer
             Get
                 Return _userId

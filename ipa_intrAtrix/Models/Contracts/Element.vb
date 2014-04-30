@@ -1,14 +1,18 @@
 ﻿
+Imports System.ComponentModel.DataAnnotations
+
 Namespace Models.Contracts
 
     Public Class Element
 
-        '<!--NHibernate Mapping Klasse für die Netzwerkelemente Tabelle-->
         Private _elementId As Integer
         Private _element As String
         Private _elementDescr As String
         Private _customerNetwork As CustomerNetwork
 
+
+        <Key()> _
+        <Required()>
         Public Overridable Property ElementId() As Integer
             Get
                 Return _elementId
