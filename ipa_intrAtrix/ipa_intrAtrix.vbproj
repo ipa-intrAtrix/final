@@ -244,6 +244,13 @@
     <EmbeddedResource Include="Models\Mappings\Waranty.hbm.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\Scripts\jquery.validate.js" />
+    <Content Include="Content\Scripts\jquery.validate.min.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="packages.config" />
     <Content Include="Views\Provider\Create.vbhtml" />
     <Content Include="Views\Provider\Delete.vbhtml" />

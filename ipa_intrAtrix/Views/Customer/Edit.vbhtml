@@ -1,7 +1,7 @@
 ﻿@ModelType ipa_intrAtrix.Models.Contracts.CustomerNetwork
 
 @Code
-    ViewData("Title") = "Bearbeiten:" + Model.CustId
+    'ViewData("Title") = "Bearbeiten:" + Model.CustId
     ViewData("Info") = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
     
     
@@ -18,7 +18,7 @@ End Code
             @Html.LabelFor(Function(model) model.CustId, "Kundennetzwerk ID:", New With {.class = "control-label"})
 
             @Html.TextBoxFor(Function(model) model.CustId, New With {.class = "form-control", .disabled = True})
-            @*@Html.ValidationMessageFor(Function(model) model.CustId)*@
+            @Html.ValidationMessageFor(Function(model) model.CustId)
         </div>
 
         <div class="form-group">
@@ -58,9 +58,16 @@ End Code
             @Html.ValidationMessageFor(Function(model) model.Shutdown)
         </div>
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.Label("Garantieart:", New With {.class = "control-label"})
             @Html.DropDownList(ViewData("GarantieArt"))
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Waranty.WarantyDescr, "Garantieart:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Waranty.WarantyDescr, New With {.class = "form-control"})
+            @Html.ValidationMessageFor(Function(model) model.Waranty.WarantyDescr)
         </div>
 
         <div class="form-group">
@@ -80,6 +87,7 @@ End Using
 
 @section Scripts
     @Scripts.Render("~/bundles/Scripts/jquery")
+    @Scripts.Render("~/bundles/Scripts/jqueryval")
     <script type="text/javascript">
         $('#sandbox-container .datepicker').datepicker({
             format: "dd.mm.yyyy",

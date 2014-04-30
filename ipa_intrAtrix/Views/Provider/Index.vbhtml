@@ -60,9 +60,7 @@ End Code
         <td>
             @Html.DisplayFor(Function(modelItem) currentItem.Weblink)
         </td>
-@*        <td>
-            @Html.DisplayFor(Function(modelItem) currentItem.Contact.Item(2))
-        </td>*@
+
         <td>
             @Html.ActionLink("Bearbeiten", "Edit", New With {.id = currentItem.ProviderId})
                             <br />

@@ -44,9 +44,7 @@ End Code
                         <td>
                             @Html.DisplayFor(Function(modelItem) currentItem.InternalDescr)
                         </td>
-                        <td>
-                            @Html.DisplayFor(Function(modelItem) currentItem.Schema)
-                        </td>
+                        
                         <td>
                             @Html.DisplayFor(Function(modelItem) currentItem.Starting)
                         </td>

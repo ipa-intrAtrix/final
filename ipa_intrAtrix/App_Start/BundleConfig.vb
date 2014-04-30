@@ -11,8 +11,8 @@ Public Class BundleConfig
 
         bundles.Add(New ScriptBundle("~/bundles/Scripts/modernizr").Include("~/Content/Scripts/modernizr-*"))
 
-        'bundles.Add(New ScriptBundle("~/bundles/Scripts/jqueryval").Include("~/Content/Scripts/jquery.unobstrusive*",
-        '                                                                    "~/Content/Scripts/jquery.validate*"))
+        bundles.Add(New ScriptBundle("~/bundles/Scripts/jqueryval").Include("~/Content/Scripts/jquery.unobstrusive*",
+                                                                            "~/Content/Scripts/jquery.validate*"))
 
         bundles.Add(New ScriptBundle("~/bundles/Scripts/bootstrapjs").Include("~/Content/Scripts/bootstrap.js",
                                                                               "~/Content/Scripts/bootstrap-datepicker.js"))

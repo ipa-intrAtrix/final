@@ -71,6 +71,7 @@ End Code
         </div>
     </div>
         @Scripts.Render("~/bundles/Scripts/jquery")
+        @Scripts.Render("~/bundles/Scripts/jqueryval")
         @Scripts.Render("~/bundles/Scripts/bootstrapjs")
 
     @RenderSection("Scripts", required:=False)

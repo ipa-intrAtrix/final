@@ -47,11 +47,19 @@ End Code
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.LoginData, "Logindaten:", New With {.class = "control-label"}) 
+            @Html.LabelFor(Function(model) model.LoginData.Username, "Username:", New With {.class = "control-label"}) 
 
             @Html.TextBoxFor(Function(model) model.LoginData.Username, New With {.class = "form-control"})
 
-            @Html.ValidationMessageFor(Function(model) model.LoginData)
+            @Html.ValidationMessageFor(Function(model) model.LoginData.Username)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.LoginData.Password, "Password:", New With {.class = "control-label"}) 
+
+            @Html.TextBoxFor(Function(model) model.LoginData.Password, New With {.class = "form-control"})
+
+            @Html.ValidationMessageFor(Function(model) model.LoginData.Password)
         </div>
 
         <div class="form-group">
@@ -85,5 +93,7 @@ End Using
 
 @Section Scripts
     @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
     @Scripts.Render("~/bundles/bootstrapjs")
 End Section

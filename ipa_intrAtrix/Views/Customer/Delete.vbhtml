@@ -8,52 +8,66 @@ End Code
 
 
     <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.CustId)
+            @Html.LabelFor(Function(model) model.CustId, "Kundennetzwerk ID:", New With {.class = "control-label"})
 
-        @Html.DisplayFor(Function(model) model.CustId)
-    </div>
+            @Html.TextBoxFor(Function(model) model.CustId, New With {.class = "form-control", .disabled = True})
+        </div>
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.SpiderId)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.SpiderId, "Spider ID:", New With {.class = "control-label"})
 
-        @Html.DisplayFor(Function(model) model.SpiderId)
-    </div>
+            @Html.TextBoxFor(Function(model) model.SpiderId, New With {.class = "form-control", .disabled = True})
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.InternalDescr)
+        </div>
 
-        @Html.DisplayFor(Function(model) model.InternalDescr)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.InternalDescr, "Interne Beschreibung:", New With {.class = "control-label"})
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.Schema)
+            @Html.TextBoxFor(Function(model) model.InternalDescr, New With {.class = "form-control", .disabled = True})
 
-        @Html.DisplayFor(Function(model) model.Schema)
-    </div>
+        </div>
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.Starting)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Schema, "Netzwerkschema:", New With {.class = "control-label"})
 
-        @Html.DisplayFor(Function(model) model.Starting)
-    </div>
+            @Html.TextBoxFor(Function(model) model.Schema, New With {.class = "form-control", .disabled = True})
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.Shutdown)
+        </div>
 
-        @Html.DisplayFor(Function(model) model.Shutdown)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Starting, "Inbetriebnahme:", New With {.class = "control-label"})
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.WarantyExp)
+            @Html.TextBoxFor(Function(model) model.Starting, New With {.class = "form-control datepicker", .disabled = True})
 
-        @Html.DisplayFor(Function(model) model.WarantyExp)
-    </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Shutdown, "Ausserbetriebnahme:", New With {.class = "control-label"}) 
+
+            @Html.TextBoxFor(Function(model) model.Shutdown, New With {.class = "form-control datepicker", .disabled = True})
+
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Waranty.WarantyDescr, "Garantieart:")
+
+            @Html.TextBoxFor(Function(model) model.Waranty.WarantyDescr, New With {.class = "form-control", .disabled = True})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.WarantyExp, "Garantie:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.WarantyExp, New With {.class = "form-control datepicker", .disabled = True})
+        </div>
 
     @Using Html.BeginForm()
         @Html.AntiForgeryToken()
         @<p>
-            <input type="submit" value="Delete" class="btn btn-default" />
-        @Html.ActionLink("Zurück zur Kundennetzwerkseite ", "Index", New With {.class = "btn btn-primary", .role = "button"})
+            @Html.ActionLink("Zurück zur Kundennetzwerkseite ", "Index", Nothing, New With {.class = "btn btn-default", .role = "button"})
+            <input type="submit" value="Delete" class="btn btn-primary" />
+        
         </p>
     End Using
 </div>

@@ -14,7 +14,7 @@ End Code
             @Html.LabelFor(Function(model) model.ProviderId, "Lieferant ID:", New With {.class = "control-label"})
 
             @Html.TextBoxFor(Function(model) model.ProviderId, New With {.class = "form-control", .disabled = True})
-            @*@Html.ValidationMessageFor(Function(model) model.CustId)*@
+            @Html.ValidationMessageFor(Function(model) model.ProviderId)
         </div>
 
         <div class="form-group">
@@ -38,45 +38,61 @@ End Code
             @Html.ValidationMessageFor(Function(model) model.Phone)
         </div>
 
-        
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Place, "Ort:", New With {.class = "control-label"})
+
+            @Html.TextBoxFor(Function(model) model.Place, New With {.class = "form-control"})
+            @Html.ValidationMessageFor(Function(model) model.Place)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.LoginData.Username, "Username:", New With {.class = "control-label"}) 
+
+            @Html.TextBoxFor(Function(model) model.LoginData.Username, New With {.class = "form-control"})
+
+            @Html.ValidationMessageFor(Function(model) model.LoginData.Username)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.LoginData.Password, "Password:", New With {.class = "control-label"}) 
+
+            @Html.TextBoxFor(Function(model) model.LoginData.Password, New With {.class = "form-control"})
+
+            @Html.ValidationMessageFor(Function(model) model.LoginData.Password)
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Email, "Email:", New With {.class = "control-label"})
 
-            @Html.TextBoxFor(Function(model) model.Email, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
+            @Html.TextBoxFor(Function(model) model.Email, New With {.class = "form-control "})
             @Html.ValidationMessageFor(Function(model) model.Email)
         </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.LockBox, "Postfach:", New With {.class = "control-label"})
 
-            @Html.TextBoxFor(Function(model) model.LockBox, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
+            @Html.TextBoxFor(Function(model) model.LockBox, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.LockBox)
         </div>
-
-        @*<div class="form-group">
-            @Html.Label("Garantieart:", New With {.class = "control-label"})
-            @Html.DropDownList(ViewData("GarantieArt"))
-        </div>*@
-
+        
+           
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Weblink, "Weblink:", New With {.class = "control-label"})
 
-            @Html.TextBoxFor(Function(model) model.Weblink, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
+            @Html.TextBoxFor(Function(model) model.Weblink, New With {.class = "form-control"})
             @Html.ValidationMessageFor(Function(model) model.Weblink)
         </div>
 
         <p>
             @Html.ActionLink("Zurück", "Index", Nothing, New With {.class = "btn btn-default", .role = "button"})
-            <input type="submit" value="Kundennetzwerk speichern" class="btn btn-primary" />
+            <input type="submit" value="Lieferant speichern" class="btn btn-primary" />
         </p>
     </div>
 End Using
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
 @Section Scripts
+
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrapjs")
 End Section

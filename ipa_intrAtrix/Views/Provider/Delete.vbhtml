@@ -8,50 +8,60 @@ End Code
 
 
     <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.ProviderId)
+            @Html.LabelFor(Function(model) model.ProviderId, "Lieferant ID:", New With {.class = "control-label"})
 
-        @Html.DisplayFor(Function(model) model.ProviderId)
-    </div>
+            @Html.TextBoxFor(Function(model) model.ProviderId, New With {.class = "form-control", .disabled = True})
+        </div>
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.Company)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Company, "Firma:", New With {.class = "control-label"})
 
-        @Html.DisplayFor(Function(model) model.Company)
-    </div>
+            @Html.TextBoxFor(Function(model) model.Company, New With {.class = "form-control", .disabled = True})
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.LockBox)
+        </div>
 
-        @Html.DisplayFor(Function(model) model.LockBox)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.LockBox, "Postfach:", New With {.class = "control-label"})
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.CustomerRef)
+            @Html.TextBoxFor(Function(model) model.LockBox, New With {.class = "form-control", .disabled = True})
 
-        @Html.DisplayFor(Function(model) model.CustomerRef)
-    </div>
+        </div>
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.Phone)
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.CustomerRef, "Kundennummer:", New With {.class = "control-label"})
 
-        @Html.DisplayFor(Function(model) model.Phone)
-    </div>
+            @Html.TextBoxFor(Function(model) model.CustomerRef, New With {.class = "form-control", .disabled = True})
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.Email)
+        </div>
 
-        @Html.DisplayFor(Function(model) model.Email)
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Phone, "Telefon:", New With {.class = "control-label"})
 
-    <div class="form-group">
-        @Html.DisplayNameFor(Function(model) model.Weblink)
+            @Html.TextBoxFor(Function(model) model.Phone, New With {.class = "form-control ", .disabled = True})
 
-        @Html.DisplayFor(Function(model) model.Weblink)
-    </div>
-@Using Html.BeginForm()
-    @Html.AntiForgeryToken()
-    @<p>
-            <input type="submit" value="Delete" class="btn btn-default" />
-            @Html.ActionLink("Zurück zur Kundennetzwerkseite ", "Index", New With {.class = "btn btn-primary", .role = "button"})</p>
-End Using
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Email, "Email:", New With {.class = "control-label"}) 
+
+            @Html.TextBoxFor(Function(model) model.Email, New With {.class = "form-control", .disabled = True})
+
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Weblink, "Weblink:")
+
+            @Html.TextBoxFor(Function(model) model.Weblink, New With {.class = "form-control", .disabled = True})
+        </div>
+
+    @Using Html.BeginForm()
+        @Html.AntiForgeryToken()
+        @<p>
+            @Html.ActionLink("Zurück zu den Lieferantenangaben ", "Index", Nothing, New With {.class = "btn btn-default", .role = "button"})
+            <input type="submit" value="Delete" class="btn btn-primary" />
+        
+        </p>
+    End Using
 </div>

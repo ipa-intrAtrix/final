@@ -15,7 +15,7 @@ End Code
             @Html.LabelFor(Function(model) model.CustId, "Kundennetzwerk ID:", New With {.class = "control-label"})
 
             @Html.TextBoxFor(Function(model) model.CustId, New With {.class = "form-control", .disabled = True})
-            @*@Html.ValidationMessageFor(Function(model) model.CustId)*@
+            @Html.ValidationMessageFor(Function(model) model.CustId)
         </div>
 
         <div class="form-group">
@@ -53,12 +53,16 @@ End Code
             @Html.ValidationMessageFor(Function(model) model.Shutdown)
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(Function(model) model.Waranty, "Garantieart:")
 
-            @Html.DropDownListFor(Function(model) model.Waranty, New SelectList(ViewData("GarantieArt"), "value", "text", Model.Waranty.WarantyId), New With {.class = "form-control"})
+
+        <div class="form-group">
+            @Html.LabelFor(Function(model) model.Waranty.WarantyDescr, "Garantieart:")
+
+            @Html.TextBoxFor(Function(model) model.Waranty.WarantyDescr, New With {.class = "form-control"})
+
+            @*@Html.DropDownListFor(Function(model) model.Waranty, New SelectList(ViewData("GarantieArt"), "value", "text", Model.Waranty.WarantyId), New With {.class = "form-control"})*@
             @Html.ValidationMessageFor(Function(model) model.Waranty.WarantyDescr)
-        </div>*@
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.WarantyExp, "Garantie:", New With {.class = "control-label"})
@@ -84,6 +88,7 @@ End Using
     @Scripts.Render("~/bundles/Scripts/jqueryui")
     @Styles.Render("~/Content/CSS/themes/base")*@
     @Scripts.Render("~/bundles/Scripts/jquery")
+    @*@Scripts.Render("~/bundles/Scripts/jqueryval")*@
     @Scripts.Render("~/bundles/Scripts/bootstrapjs")
     <script type="text/javascript">
         $('#sandbox-container .datepicker').datepicker({
