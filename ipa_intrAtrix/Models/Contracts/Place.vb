@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 
 Namespace Models.Contracts
+
+    <Bind(Exclude:="PlaceId")>
     Public Class Place
         Private _placeId As Integer
         Private _name As String
@@ -14,8 +16,7 @@ Namespace Models.Contracts
         End Sub
 
 
-        <Key()> _
-        <Required()>
+        <ScaffoldColumn(False)>
         Public Overridable Property PlaceId() As Integer
             Get
                 Return _placeId

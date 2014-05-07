@@ -51,8 +51,8 @@ Namespace Models
             End Using
         End Sub
 
-        Public Function GetWarantyInfo() As IList(Of Waranty)
-            Dim warantyInfo As IList(Of Waranty)
+        Public Function GetWarantyInfo() As IEnumerable(Of Waranty)
+            Dim warantyInfo As List(Of Waranty)
             Using session As ISession = NHibernateHelper.GetCurrentSession()
                 Dim criteria As ICriteria = session.CreateCriteria(GetType(Waranty))
                 warantyInfo = criteria.List(Of Waranty)()

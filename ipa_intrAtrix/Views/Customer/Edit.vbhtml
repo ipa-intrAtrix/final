@@ -14,32 +14,32 @@ End Code
     @Html.ValidationSummary(True)
     
     @<div>
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(Function(model) model.CustId, "Kundennetzwerk ID:", New With {.class = "control-label"})
 
             @Html.TextBoxFor(Function(model) model.CustId, New With {.class = "form-control", .disabled = True})
             @Html.ValidationMessageFor(Function(model) model.CustId)
-        </div>
+        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.SpiderId, "Spider ID:", New With {.class = "control-label"})
 
             @Html.TextBoxFor(Function(model) model.SpiderId, New With {.class = "form-control"})
-            @Html.ValidationMessageFor(Function(model) model.SpiderId)
+            @Html.ValidationMessageFor(Function(model) model.SpiderId, Nothing, New With {.class = "help-inline"})
         </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.InternalDescr, "Interne Beschreibung:", New With {.class = "control-label"})
 
             @Html.TextBoxFor(Function(model) model.InternalDescr, New With {.class = "form-control"})
-            @Html.ValidationMessageFor(Function(model) model.InternalDescr)
+            @Html.ValidationMessageFor(Function(model) model.InternalDescr, Nothing, New With {.class = "help-inline"})
         </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Schema, "Netzwerkschema:", New With {.class = "control-label"})
 
             @Html.TextBoxFor(Function(model) model.Schema, New With {.class = "form-control"})
-            @Html.ValidationMessageFor(Function(model) model.Schema)
+            @Html.ValidationMessageFor(Function(model) model.Schema, Nothing, New With {.class = "help-inline"})
         </div>
 
         
@@ -47,34 +47,30 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Starting, "Inbetriebnahme:", New With {.class = "control-label"})
 
-            @Html.TextBoxFor(Function(model) model.Starting, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
-            @Html.ValidationMessageFor(Function(model) model.Starting)
+            @Html.EditorFor(Function(model) model.Starting, New With {.placeholder = "Datum auswählen..."})
+            @Html.ValidationMessageFor(Function(model) model.Starting, Nothing, New With {.class = "help-inline"})
         </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Shutdown, "Ausserbetriebnahme:", New With {.class = "control-label"})
 
-            @Html.TextBoxFor(Function(model) model.Shutdown, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
-            @Html.ValidationMessageFor(Function(model) model.Shutdown)
+            @Html.EditorFor(Function(model) model.Shutdown, New With {.placeholder = "Datum auswählen..."})
+            @Html.ValidationMessageFor(Function(model) model.Shutdown, Nothing, New With {.class = "help-inline"})
         </div>
-
-        @*<div class="form-group">
-            @Html.Label("Garantieart:", New With {.class = "control-label"})
-            @Html.DropDownList(ViewData("GarantieArt"))
-        </div>*@
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Waranty.WarantyDescr, "Garantieart:", New With {.class = "control-label"})
+            @Html.DropDownListFor(Function(model) model.Waranty.WarantyId, New SelectList(ViewData("GarantieArt"), "WarantyId", "WarantyDescr"), New With {.class = "form-control"})
 
-            @Html.TextBoxFor(Function(model) model.Waranty.WarantyDescr, New With {.class = "form-control"})
-            @Html.ValidationMessageFor(Function(model) model.Waranty.WarantyDescr)
         </div>
+
+        
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.WarantyExp, "Garantie:", New With {.class = "control-label"})
 
-            @Html.TextBoxFor(Function(model) model.WarantyExp, New With {.class = "form-control datepicker", .placeholder = "Datum auswählen..."})
-            @Html.ValidationMessageFor(Function(model) model.WarantyExp)
+            @Html.EditorFor(Function(model) model.WarantyExp, New With {.placeholder = "Datum auswählen..."})
+            @Html.ValidationMessageFor(Function(model) model.WarantyExp, Nothing, New With {.class = "help-inline"})
         </div>
 
         <p>
@@ -88,16 +84,9 @@ End Using
 @section Scripts
     @Scripts.Render("~/bundles/Scripts/jquery")
     @Scripts.Render("~/bundles/Scripts/jqueryval")
+    @Scripts.Render("~/bundles/Scripts/bootstrapjs")
     <script type="text/javascript">
-        $('#sandbox-container .datepicker').datepicker({
-            format: "dd.mm.yyyy",
-            orientation: "auto right",
-            autoclose: true,
-            todayHighlight: true
-        });
+        $('.datepicker').datepicker();
     </script>
-    
-    @*@Scripts.Render("~/bundles/Scripts/jqueryui")
-    @Styles.Render("~/Content/CSS/themes/base")*@
 End Section
 

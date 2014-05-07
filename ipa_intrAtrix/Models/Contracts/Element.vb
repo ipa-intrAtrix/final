@@ -3,6 +3,7 @@ Imports System.ComponentModel.DataAnnotations
 
 Namespace Models.Contracts
 
+    <Bind(Exclude:="ElementId")>
     Public Class Element
 
         Private _elementId As Integer
@@ -11,8 +12,7 @@ Namespace Models.Contracts
         Private _customerNetwork As CustomerNetwork
 
 
-        <Key()> _
-        <Required()>
+        <ScaffoldColumn(False)>
         Public Overridable Property ElementId() As Integer
             Get
                 Return _elementId

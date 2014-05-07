@@ -60,7 +60,7 @@ End Code
         @Html.AntiForgeryToken()
         @<p>
             @Html.ActionLink("Zurück zu den Lieferantenangaben ", "Index", Nothing, New With {.class = "btn btn-default", .role = "button"})
-            <input type="submit" value="Delete" class="btn btn-primary" />
+            <input type="submit" value="Löschen" class="btn btn-primary" />
         
         </p>
     End Using

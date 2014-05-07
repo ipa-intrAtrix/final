@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 
 Namespace Models.Contracts
+
+    <Bind(Exclude:="ContactId")>
     Public Class Contact
         Private _contactId As Integer
         Private _name As String
@@ -15,8 +17,7 @@ Namespace Models.Contracts
             Provider = New List(Of Providers)()
         End Sub
 
-        <Key()> _
-        <Required()>
+        <ScaffoldColumn(False)>
         Public Overridable Property ContactId() As Integer
             Get
                 Return _contactId

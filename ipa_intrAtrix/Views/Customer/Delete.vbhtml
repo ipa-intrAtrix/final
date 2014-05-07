@@ -66,7 +66,7 @@ End Code
         @Html.AntiForgeryToken()
         @<p>
             @Html.ActionLink("Zurück zur Kundennetzwerkseite ", "Index", Nothing, New With {.class = "btn btn-default", .role = "button"})
-            <input type="submit" value="Delete" class="btn btn-primary" />
+            <input type="submit" value="Löschen" class="btn btn-primary" />
         
         </p>
     End Using

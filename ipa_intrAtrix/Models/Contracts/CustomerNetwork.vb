@@ -2,6 +2,7 @@
 
 Namespace Models.Contracts
 
+    <Bind(Exclude:="CustId")>
     Public Class CustomerNetwork
 
         Private _custId As Integer
@@ -19,8 +20,8 @@ Namespace Models.Contracts
             Elements = New List(Of Element)
         End Sub
 
-        <Key()> _
-        <Required()>
+
+        <ScaffoldColumn(False)>
         Public Overridable Property CustId() As Integer
             Get
                 Return _custId
@@ -30,7 +31,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
-        <Required()> _
+        <Required()>
         Public Overridable Property SpiderId() As String
             Get
                 Return _spiderId
@@ -40,7 +41,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
-        <Required()> _
+        <Required()>
         Public Overridable Property InternalDescr() As String
             Get
                 Return _internalDescr
@@ -60,8 +61,8 @@ Namespace Models.Contracts
         End Property
 
 
-        <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}", ApplyFormatInEditMode:=True)> _
-        <DataType(DataType.Date)> _
+
+        <DataType(DataType.Date), DisplayFormat(DataFormatString:="{0:d}")>
         Public Overridable Property Starting() As Date?
             Get
                 Return _starting
@@ -71,9 +72,8 @@ Namespace Models.Contracts
             End Set
         End Property
 
-        <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
-                       ApplyFormatInEditMode:=True)> _
-        <DataType(DataType.Date)> _
+
+        <DataType(DataType.Date), DisplayFormat(DataFormatString:="{0:d}")>
         Public Overridable Property Shutdown() As Date?
             Get
                 Return _shutdown
@@ -83,9 +83,8 @@ Namespace Models.Contracts
             End Set
         End Property
 
-        <DisplayFormat(DataFormatString:="{0:dd.MM.yyyy}",
-                       ApplyFormatInEditMode:=True)> _
-        <DataType(DataType.Date)> _
+
+        <DataType(DataType.Date), DisplayFormat(DataFormatString:="{0:d}")>
         Public Overridable Property WarantyExp() As Date?
             Get
                 Return _warantyExp

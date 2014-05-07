@@ -7,10 +7,9 @@
     <meta name="author" content="Sakir Olgun">
     <title>@ViewData("Title")</title>
     @Styles.Render("~/Content/CSS")
-    @*@Styles.Render("~/Content/CSS/themes/base/css")*@
     @Scripts.Render("~/bundles/Scripts/modernizr")
-    <style>
-    </style>
+    
+
 
 </head>
 @code
@@ -70,9 +69,13 @@ End Code
 
         </div>
     </div>
+    @section Scripts
         @Scripts.Render("~/bundles/Scripts/jquery")
         @Scripts.Render("~/bundles/Scripts/jqueryval")
         @Scripts.Render("~/bundles/Scripts/bootstrapjs")
+        
+        
+    end section
 
     @RenderSection("Scripts", required:=False)
 </body>

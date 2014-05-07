@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 
 Namespace Models.Contracts
+
+    <Bind(Exclude:="LoginDataId")>
     Public Class LoginData
         Private _loginDataId As Integer
         Private _username As String
@@ -11,8 +13,7 @@ Namespace Models.Contracts
             Me.Provider = New List(Of Providers)
         End Sub
 
-        <Key()> _
-        <Required()>
+        <ScaffoldColumn(False)>
         Public Overridable Property LoginDataId() As Integer
             Get
                 Return _loginDataId
@@ -31,6 +32,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
+        <DataType(DataType.Password)>
         Public Overridable Property Password() As String
             Get
                 Return _password

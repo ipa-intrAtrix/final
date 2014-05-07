@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 
 Namespace Models.Contracts
+
+    <Bind(Exclude:="UserId")>
     Public Class Users
 
         Private _userId As Integer
@@ -17,8 +19,7 @@ Namespace Models.Contracts
             Provider = New List(Of Providers)
         End Sub
 
-        <Key()> _
-        <Required()>
+        <ScaffoldColumn(False)>
         Public Overridable Property UserId() As Integer
             Get
                 Return _userId
@@ -82,6 +83,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
+        <DataType(DataType.Password)>
         Public Overridable Property Pass() As String
             Get
                 Return _pass

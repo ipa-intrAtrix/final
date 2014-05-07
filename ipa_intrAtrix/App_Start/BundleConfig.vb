@@ -22,7 +22,7 @@ Public Class BundleConfig
         bundles.Add(New StyleBundle("~/Content/CSS").Include("~/Content/bootstrap.css",
                                                              "~/Content/bootstrap-theme.css",
                                                              "~/Content/dashboard.css",
-                                                             "~/Content/datepicker3.css"))
+                                                             "~/Content/datepicker.css"))
 
         'bundles.Add(New StyleBundle("~/Content/CSS/themes/base").Include("~/Content/themes/base/jquery.ui.autocomplete.css",
         '                                                             "~/Content/themes/base/jquery.ui.datepicker.css"))

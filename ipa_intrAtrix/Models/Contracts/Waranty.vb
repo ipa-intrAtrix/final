@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 
 Namespace Models.Contracts
+
+    <Bind(Exclude:="WarantyId")>
     Public Class Waranty
 
 
@@ -13,8 +15,7 @@ Namespace Models.Contracts
         End Sub
 
 
-        <Key()> _
-        <Required()>
+        <ScaffoldColumn(False)>
         Public Overridable Property WarantyId() As Integer
             Get
                 Return _warantyId

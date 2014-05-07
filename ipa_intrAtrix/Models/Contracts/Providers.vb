@@ -2,6 +2,8 @@
 Imports System.ComponentModel.DataAnnotations
 
 Namespace Models.Contracts
+
+    <Bind(Exclude:="ProviderId")>
     Public Class Providers
         Private _providerId As Integer
         Private _company As String
@@ -22,9 +24,8 @@ Namespace Models.Contracts
 
         End Sub
 
-   
-        <Key()> _
-        <Required()>
+
+        <ScaffoldColumn(False)>
         Public Overridable Property ProviderId() As Integer
             Get
                 Return _providerId
@@ -34,7 +35,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
-        <Required()> _
+        <Required()>
         Public Overridable Property Company() As String
             Get
                 Return _company
@@ -53,7 +54,7 @@ Namespace Models.Contracts
             End Set
         End Property
 
-        <StringLength(25)> _
+        <StringLength(25)>
         Public Overridable Property CustomerRef() As String
             Get
                 Return _customerRef
